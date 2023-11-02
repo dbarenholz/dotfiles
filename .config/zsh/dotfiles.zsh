@@ -49,6 +49,5 @@ dotfiles() {
     git -C $DOTFILES add .
     git -C $DOTFILES commit -S -m "Update dotfiles"
     git -C $DOTFILES push
-    cd -
   fi
 }
