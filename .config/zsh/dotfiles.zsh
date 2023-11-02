@@ -7,47 +7,49 @@ dotfiles() {
     fi
   done
 
-  readonly DOTFILES="/home/dan/.dotfiles"
+  readonly DOTFILES="$HOME/.dotfiles"
   if ! [[ -w "$DOTFILES" ]]; then
     echo "You do not have write access to the dotfiles directory: $DOTFILES"
     return
   fi
 
-  # TODO: replace with fancy menu
   if [[ $# -lt 1 ]]; then
-    echo "Usage: dotfiles <task> <optional arguments>"
-    echo "       dotfiles add file.ext"
-    echo "       dotfiles add folder"
-    echo "       dotfiles update"
+    echo "Usage: dotfiles [task] [optional arguments]"
+    echo "Examples"
+    echo "       dotfiles [a/add] file.ext  add file.ext to dotfiles"
+    echo "       dotfiles [a/add] folder    add folder to dotfiles"
+    echo "       dotfiles [u/update]        commit and push dotfiles to git"
     return
   fi
 
-  VALID_TASKS=("a" "add" "u" "update")
-  readonly task=${1:?"Action must be specified"}
-  if ! [[ ${VALID_TASKS[@]} =~ $task ]]; then
-    echo "Invalid task given: $task."
-    return
-  fi
+  readonly task=${1:?"Action must be specified.\n$(dotfiles)"}
+  case "$task" in
 
-  if [[ "$task" -eq "add" || "$task" -eq "a" ]]; then
-    for arg in "${@:2}"; do
-      DIRS="$(dirname $(realpath --relative-to=$HOME $(pwd)/$arg))"
-      mkdir -p $DOTFILES/$DIRS
+    "a" | "add")
+      for arg in "${@:2}"; do
+        DIRS="$(dirname $(realpath --relative-to=$HOME $(pwd)/$arg))"
+        mkdir -p $DOTFILES/$DIRS
 
-      if [[ -d "$arg" ]]; then
-        cp -al $(pwd)/$arg $DOTFILES/$DIRS
+        if [[ -d "$arg" ]]; then
+          cp -al $(pwd)/$arg $DOTFILES/$DIRS
 
-      elif [[ -f "$arg" ]]; then
-        ln -ivt $DOTFILES/$DIRS $arg
-      else
-      fi
-    done
-  fi
+        elif [[ -f "$arg" ]]; then
+          ln -ivt $DOTFILES/$DIRS $arg
+        else
+        fi
+      done
+      ;;
 
-  if [[ "$task" -eq "update" || "$task" -eq "u" ]]; then
-    echo "Pushing to git"
-    git -C $DOTFILES add .
-    git -C $DOTFILES commit -S -m "Update dotfiles"
-    git -C $DOTFILES push
-  fi
+    "u" | "update")
+      echo "Pushing to git"
+      git -C $DOTFILES add .
+      git -C $DOTFILES commit -S -m "Update dotfiles"
+      git -C $DOTFILES push
+      ;;
+   
+    *)
+      echo "Invalid task given: $task.\n$(dotfiles)"
+      return 
+
+  esac
 }
