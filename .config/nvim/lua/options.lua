@@ -1,17 +1,17 @@
--- set relative line numbers, but keep current line as absolute
-vim.wo.relativenumber = true
-vim.wo.number = true
+vim.o.clipboard = "unnamed,unnamedplus"  -- use system clipboard
 
--- yank to clipboard
-vim.o.clipboard="unnamed,unnamedplus"
+vim.o.relativenumber = true  -- use relative line numbers            
+vim.o.number = true          -- current line is absolute
 
--- save undo history
-vim.o.undofile = true
+vim.o.undofile = true    -- save undo history through multiple sessions
 
--- set some tab behaviour
-vim.o.sw = 2    -- shiftwidth: if I press tab, put this many spaces
-vim.o.et = true -- expand tabs to spaces
-vim.o.ts = 8    -- compatibility with garbage code in GNU C and old Haskell :^)
+vim.o.shiftwidth = 2     -- pressing tab puts this many spaces instead
+vim.o.expandtabs = true  -- expand tabs to spaces
+vim.o.tabsize = 8        -- a \t character is 8 spaces
 
-vim.o.tw = 80
-vim.o.cc = '+1'
+vim.o.textwidth = 80     -- limit column at 80 characters
+vim.o.colorcolumn = '+1' -- highlight when you go over 80
+vim.cmd.highlight(       -- show black column add color column
+ { "ColorColumn", "ctermbg=black" }
+)
+

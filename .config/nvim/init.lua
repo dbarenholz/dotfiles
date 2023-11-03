@@ -1,6 +1,3 @@
-
--- edit from dotfiles folder
-
 -- set vim options; this will load the file at `.config/nvim/lua/options.lua`
 require("options")
 
