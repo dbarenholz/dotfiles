@@ -1,5 +1,6 @@
 dotfiles() {
-  REQUIRED_TOOLS=(cp ln dirname realpath git)
+  # Check if required tools exist
+  local REQUIRED_TOOLS=(cp ln dirname realpath git)
   for tool in ${REQUIRED_TOOLS[@]}; do
     if ! [[ -x "$(command -v $tool)" ]]; then
       echo "$tool could not be found"
@@ -7,12 +8,14 @@ dotfiles() {
     fi
   done
 
-  readonly DOTFILES="$HOME/.dotfiles"
+  # Check write access to dotfiles folder
+  readonly local DOTFILES="$HOME/.dotfiles"
   if ! [[ -w "$DOTFILES" ]]; then
     echo "You do not have write access to the dotfiles directory: $DOTFILES"
     return
   fi
 
+  # Print "help" if no arguments
   if [[ $# -lt 1 ]]; then
     echo "Usage: dotfiles [task] [optional arguments]"
     echo "Examples"
@@ -22,14 +25,14 @@ dotfiles() {
     return
   fi
 
-  readonly task=${1:?"Action must be specified.\n$(dotfiles)"}
+  # Actual functionality starts here
+  readonly local task=${1:?"Action must be specified.\n$(dotfiles)"}
+
   case "$task" in
 
     "a" | "add")
       for arg in "${@:2}"; do
-        # echo "$(dirname "$(realpath --relative-to "$HOME" "$(realpath "$arg")")")"
-	# return
-	DIRS="$(dirname "$(realpath --relative-to "$HOME" "$(realpath "$arg")")")"
+        DIRS="$(dirname "$(realpath --relative-to "$HOME" "$(realpath "$arg")")")"
         mkdir -p "$DOTFILES/$DIRS"
 
         if [[ -d "$arg" ]]; then
