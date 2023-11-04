@@ -34,7 +34,9 @@ export TERM=xterm-256color
 
 # Include binaries from home
 export PATH=$PATH:/home/dan/bin
+
 export EDITOR=nvim
+export GTK_THEME=Adwaita:dark
 
 # p10k - fancy prompts!
 source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -50,4 +52,4 @@ plugins=(
 source ~/.config/zsh/plugins.zsh
 
 # custom functions for various reasons
-source ~/.config/zsh/dotfiles.zsh
+# source ~/.config/zsh/dotfiles.zsh

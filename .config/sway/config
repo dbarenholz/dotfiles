@@ -80,7 +80,7 @@ bindswitch lid:off output eDP-1 enable
     bindsym $meta+Shift+q kill
 
     # Start your launcher
-    bindsym $meta+d exec $menu
+    bindsym $meta+d exec GTK_THEME=Adwaita:dark $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
