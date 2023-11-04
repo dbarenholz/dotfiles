@@ -27,24 +27,28 @@ dotfiles() {
 
     "a" | "add")
       for arg in "${@:2}"; do
-        DIRS="$(dirname $(realpath --relative-to=$HOME $(pwd)/$arg))"
-        mkdir -p $DOTFILES/$DIRS
+        # echo "$(dirname "$(realpath --relative-to "$HOME" "$(realpath "$arg")")")"
+	# return
+	DIRS="$(dirname "$(realpath --relative-to "$HOME" "$(realpath "$arg")")")"
+        mkdir -p "$DOTFILES/$DIRS"
 
         if [[ -d "$arg" ]]; then
-          cp -al $(pwd)/$arg $DOTFILES/$DIRS
-
+	  cp -ial "$(realpath "$arg")" "$DOTFILES/$DIRS"
         elif [[ -f "$arg" ]]; then
-          ln -ivt $DOTFILES/$DIRS $arg
+          ln -ivt "$DOTFILES/$DIRS" "$arg"
         else
+	  echo "Unsupported argument: $arg"
+	  echo "Please make sure this is a file or directory"
+	  return
         fi
       done
       ;;
 
     "u" | "update")
       echo "Pushing to git"
-      git -C $DOTFILES add .
-      git -C $DOTFILES commit -S -m "Update dotfiles"
-      git -C $DOTFILES push
+      git -C "$DOTFILES" add .
+      git -C "$DOTFILES" commit -S -m "Update dotfiles"
+      git -C "$DOTFILES" push
       ;;
    
     *)
