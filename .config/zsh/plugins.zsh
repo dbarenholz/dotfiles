@@ -2,18 +2,18 @@
 PLUGINS="/home/dan/.config/zsh/plugins"
 
 for plugin in $plugins; do
-  plugin_dir=$PLUGINS/$plugin
+  plugin_dir="$PLUGINS/$plugin"
 
   # clone the plugin
-  if [[ ! -d $plugin_dir ]]; then
-    mkdir -p ${plugin_dir%/*}
-    git clone --depth 1 --recursive https://github.com/$plugin.git $plugin_dir
+  if [[ ! -d "$plugin_dir" ]]; then
+    mkdir -p "${plugin_dir%/*}"
+    git clone --depth 1 --recursive "https://github.com/$plugin.git" "$plugin_dir"
   fi
 
   # load the plugin
-  for init_script in ${plugin#*/}.zsh ${plugin#*/}.plugin.zsh ${plugin#*/}.sh; do
-    if [[ -f $plugin_dir/$init_script ]]; then
-      source $plugin_dir/$init_script
+  for init_script in "${plugin#*/}.zsh" "${plugin#*/}.plugin.zsh" "${plugin#*/}.sh"; do
+    if [[ -f "$plugin_dir/$init_script" ]]; then
+      source "$plugin_dir/$init_script"
       break
     fi
   done
