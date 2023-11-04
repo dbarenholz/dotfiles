@@ -1,6 +1,7 @@
 # set plugin folder
-PLUGINS="/home/dan/.config/zsh/plugins"
+PLUGINS="$HOME/.config/zsh/plugins"
 
+# The "$plugins" variable is defined in .zshrc
 for plugin in $plugins; do
   plugin_dir="$PLUGINS/$plugin"
 
