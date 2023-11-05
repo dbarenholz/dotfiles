@@ -52,4 +52,4 @@ plugins=(
 source ~/.config/zsh/plugins.zsh
 
 # custom functions for various reasons
-# source ~/.config/zsh/dotfiles.zsh
+source ~/.config/zsh/dotfiles.zsh
