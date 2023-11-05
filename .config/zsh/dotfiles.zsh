@@ -1,12 +1,11 @@
 #!/bin/zsh
 dotfiles() {
   # Check if required tools exist
-  local REQUIRED_TOOLS=(cp ln dirname realpath git)
+  local REQUIRED_TOOLS=(cp ln cat cut basename dirname realpath git)
   for tool in ${REQUIRED_TOOLS[@]}; do
-    if ! [[ -x "$(command -v $tool)" ]]; then
-      echo "$tool could not be found"
-      return
-    fi
+    local CMD="$(command -v "$tool")"
+    [[ "$CMD" == *"alias"* ]] && CMD="$(echo "$CMD" | cut -d= -f2)"
+    [[ ! -x "$CMD" ]] && echo "$tool could not be found"; return;
   done
 
   # Check write access to $DOTFILES folder
@@ -18,11 +17,18 @@ dotfiles() {
 
   # Print "help" if no arguments
   if [[ $# -lt 1 ]]; then
-    echo "Usage: dotfiles [task] [optional arguments]"
-    echo "Examples"
-    echo "       dotfiles [a/add] file.ext  add file.ext to dotfiles"
-    echo "       dotfiles [a/add] folder    add folder to dotfiles"
-    echo "       dotfiles [u/update]        commit and push dotfiles to git"
+    cat << END_HELP
+Usage:
+  dotfiles [a/add] <list of files and/or folders>'
+      -> Add all arguments to $DOTFILES, and make a commit.'
+  dotfiles [u/update]"
+      -> Make a commit (if needed) and push all changes."
+Note:
+  the command is meant to be given arguments from 
+  $HOME/.config/ (or similar place) and then the script 
+  will copy the arguments to $DOTFILES, 
+  and make symlinks from the original place to $DOTFILES.
+END_HELP
     return
   fi
 
