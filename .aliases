@@ -1,0 +1,32 @@
+# ls aliases
+alias ls='ls --color=auto'
+alias l='ls -l'
+alias ll='ls -la'
+
+# git aliases
+alias ga='git add'
+alias gaa='git add .'
+alias gst='git status'
+alias gcsm='git commit -S -m'
+
+# zshrc and aliases editing
+alias nano='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
+alias zshrc='$EDITOR ~/.zshrc'
+alias vimrc='$EDITOR ~/.config/nvim/init.lua'
+alias aliases='$EDITOR ~/.aliases'
+
+# quickhand for directories
+alias d='cd ~/.dotfiles'
+alias c='cd ~/.config'
+
+# Quickly enter distroboxes
+alias sb='distrobox enter sb'
+alias dev='cd ~/dev && distrobox enter dev'
+
+## composite commands
+# screenshot -- also bound to META+SHIFT+S using sway
+alias ss='grim -g "$(slurp)" - | wl-copy'
+alias screenshare='echo "enter distrobox (sb) and run:\nmpv -vo=xv udp://0.0.0.0:1111 --no-cache --untimed --no-demuxer-thread --video-sync=audio --vd-lavc-threads=1 & wf-recorder --muxer=mpegts --codec=libx264 --file=udp://0.0.0.0:1111"'

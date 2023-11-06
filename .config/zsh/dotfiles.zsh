@@ -1,11 +1,12 @@
 #!/bin/zsh
 dotfiles() {
   # Check if required tools exist
+  # Note: finicky when you have 'alias cat=bat'
   local REQUIRED_TOOLS=(cp ln cat cut basename dirname realpath git)
   for tool in ${REQUIRED_TOOLS[@]}; do
     local CMD="$(command -v "$tool")"
     [[ "$CMD" == *"alias"* ]] && CMD="$(echo "$CMD" | cut -d= -f2)"
-    [[ ! -x "$CMD" ]] && echo "$tool could not be found"; return;
+    [[ ! -x "$CMD" ]] && echo "$tool could not be found" && return
   done
 
   # Check write access to $DOTFILES folder
@@ -24,10 +25,9 @@ Usage:
   dotfiles [u/update]"
       -> Make a commit (if needed) and push all changes."
 Note:
-  the command is meant to be given arguments from 
-  $HOME/.config/ (or similar place) and then the script 
-  will copy the arguments to $DOTFILES, 
-  and make symlinks from the original place to $DOTFILES.
+  The command is meant to be given arguments from $HOME/.config/ (or similar place)
+  and then the script will copy the arguments to $DOTFILES, 
+  and make symlinks from $HOME/.config/ -> $DOTFILES.
 END_HELP
     return
   fi
@@ -48,15 +48,15 @@ END_HELP
 	# 0. Do some path magic to find the right places to copy/link from/to
 	
 	local BASENAME="$(basename "$arg")"
-	# echo "BASENAME=$BASENAME"
+	echo "BASENAME=$BASENAME"
 	local FULLPATH="$(realpath "$arg")"
-	# echo "FULLPATH=$FULLPATH"
+	echo "FULLPATH=$FULLPATH"
 	local RELPATH="$(realpath --relative-to "$HOME" "$FULLPATH")"
-	# echo "RELPATH=$RELPATH"
+	echo "RELPATH=$RELPATH"
 	local DIRS="$(dirname "$RELPATH")"
-	# echo "DIRS=$DIRS"
+	echo "DIRS=$DIRS"
 	local MAKEDIRS="$(realpath "$DOTFILES/$DIRS")"
-	# echo "MAKEDIRS=$MAKEDIRS"
+	echo "MAKEDIRS=$MAKEDIRS"
 
 	[[ ! -d "$MAKEDIRS" ]] && mkdir -p "$MAKEDIRS"
 	
