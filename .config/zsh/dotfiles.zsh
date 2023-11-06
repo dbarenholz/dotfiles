@@ -48,15 +48,15 @@ END_HELP
 	# 0. Do some path magic to find the right places to copy/link from/to
 	
 	local BASENAME="$(basename "$arg")"
-	echo "BASENAME=$BASENAME"
+	#echo "BASENAME=$BASENAME"
 	local FULLPATH="$(realpath "$arg")"
-	echo "FULLPATH=$FULLPATH"
+	#echo "FULLPATH=$FULLPATH"
 	local RELPATH="$(realpath --relative-to "$HOME" "$FULLPATH")"
-	echo "RELPATH=$RELPATH"
+	#echo "RELPATH=$RELPATH"
 	local DIRS="$(dirname "$RELPATH")"
-	echo "DIRS=$DIRS"
+	#echo "DIRS=$DIRS"
 	local MAKEDIRS="$(realpath "$DOTFILES/$DIRS")"
-	echo "MAKEDIRS=$MAKEDIRS"
+	#echo "MAKEDIRS=$MAKEDIRS"
 
 	[[ ! -d "$MAKEDIRS" ]] && mkdir -p "$MAKEDIRS"
 	
