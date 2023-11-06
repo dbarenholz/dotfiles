@@ -2,7 +2,8 @@
 -- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/lsp-config.lua
 
 vim.g.lsps = {
-  "lua_ls",
+  "lua_ls", -- lua; nvim setup is in lua
+  "bashls", -- bash/zsh; for basic scripts
 }
 
 
@@ -39,7 +40,16 @@ configs.lua_ls = {
   },
 }
 
+-- Do I need this? How does it work?
+configs.bashls = {
+}
+
+
+
 return {
+  {
+    "folke/neodev.nvim",
+  },
   {
     "neovim/nvim-lspconfig",
     init = function()
