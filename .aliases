@@ -8,6 +8,7 @@ alias ga='git add'
 alias gaa='git add .'
 alias gst='git status'
 alias gcsm='git commit -S -m'
+alias gp='git push'
 
 # zshrc and aliases editing
 alias nano='nvim'
