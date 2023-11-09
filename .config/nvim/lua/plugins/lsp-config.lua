@@ -2,8 +2,14 @@
 -- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/lsp-config.lua
 
 vim.g.lsps = {
-  "lua_ls", -- lua; nvim setup is in lua
-  "bashls", -- bash/zsh; for basic scripts
+  "lua_ls",   -- lua; nvim setup is in lua
+  -- TODO: steal chrisgrieser's way of using bashls for zsh
+  "bashls",   -- bash/zsh; for basic scripts
+  "marksman",  -- md; markdown completion, wiki links
+  "cssls",    -- css
+  --"biome",
+  --"tsserver",
+  --"html"
 }
 
 
@@ -40,11 +46,33 @@ configs.lua_ls = {
   },
 }
 
--- Do I need this? How does it work?
-configs.bashls = {
+
+-- DOCS https://github.com/sublimelsp/LSP-css/blob/master/LSP-css.sublime-settings
+-- DOCS https://github.com/microsoft/vscode-css-languageservice/blob/main/src/services/lintRules.ts
+-- TODO: Figure out what settings I want.
+configs.cssls = {
+  settings = {
+    css = {
+      colorDecorators = { enable = true }, -- color inlay hints
+      lint = {
+	-- compatibleVendorPrefixes = "ignore",
+	-- vendorPrefix = "ignore",
+	-- unknownVendorSpecificProperties = "ignore",
+	-- unknownProperties = "ignore", -- duplicate with stylelint
+	-- duplicateProperties = "warning",
+	-- emptyRules = "warning",
+	-- importStatement = "warning",
+	-- zeroUnits = "warning",
+	-- fontFaceProperties = "warning",
+	-- hexColorLength = "warning",
+	-- argumentsInColorFunction = "warning",
+	-- unknownAtRules = "warning",
+	-- ieHack = "warning",
+	-- propertyIgnoredDueToDisplay = "warning",
+      },
+    },
+  },
 }
-
-
 
 return {
   {
@@ -53,6 +81,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     init = function()
+      -- TODO: provide capabilities for snippets-completion
+      -- setup each LSP defined in this file
       for lsp, config in pairs(configs) do
 	require("lspconfig")[lsp].setup(config)
       end
