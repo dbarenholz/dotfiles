@@ -7,6 +7,7 @@ alias ll='ls -la'
 alias ga='git add'
 alias gaa='git add .'
 alias gst='git status'
+alias gcs='git commit -S'
 alias gcsm='git commit -S -m'
 alias gp='git push'
 
