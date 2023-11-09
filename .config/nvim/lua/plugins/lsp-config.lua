@@ -2,11 +2,12 @@
 -- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/lsp-config.lua
 
 vim.g.lsps = {
-  "lua_ls",   -- lua; nvim setup is in lua
+  "lua_ls",    -- lua; nvim setup is in lua
   -- TODO: steal chrisgrieser's way of using bashls for zsh
-  "bashls",   -- bash/zsh; for basic scripts
+  "bashls",    -- bash/zsh; for basic scripts
   "marksman",  -- md; markdown completion, wiki links
-  "cssls",    -- css
+  "cssls",     -- css
+  "jsonls",    -- json
   --"biome",
   --"tsserver",
   --"html"
