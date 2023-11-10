@@ -212,7 +212,18 @@ bindsym $meta+r mode "resize"
 bindsym $meta+Shift+s exec --no-startup-id bash -c 'grim -g "$(slurp)" - | wl-copy'
 
 ## Window borders
-default_border pixel
+default_border pixel 1
+default_floating_border pixel 1
+
+set $ignored #ffffff
+set $active #ffcc66
+set $indicator #c3a6ff
+set $inactive #171c28
+
+# class                   border    background  text      indicator   child_border
+client.focused            $ignored  $ignored    $ignored  $indicator  $active
+client.focused_inactive   $ignored  $ignored    $ignored  $indicator  $inactive
+client.unfocused          $ignored  $ignored    $ignored  $indicator  $inactive
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
