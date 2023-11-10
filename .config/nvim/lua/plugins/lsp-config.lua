@@ -75,6 +75,22 @@ configs.cssls = {
   },
 }
 
+-- Setup the LSPs
+local function setupLspsWithCapabilities()
+  -- enable snippet (nvm-cmp) and folding (nvm-ufo) support
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+  }
+  -- set capabilities for each LSP
+  for lsp, config in pairs(configs) do
+    config.capabilities = capabilities
+    require("lspconfig")[lsp].setup(config)
+  end
+end
+
 return {
   {
     "folke/neodev.nvim",
@@ -82,11 +98,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     init = function()
-      -- TODO: provide capabilities for snippets-completion
-      -- setup each LSP defined in this file
-      for lsp, config in pairs(configs) do
-	require("lspconfig")[lsp].setup(config)
-      end
+      setupLspsWithCapabilities()
     end
   }
 }
