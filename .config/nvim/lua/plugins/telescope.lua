@@ -1,9 +1,9 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "nvim-telescope/telescope.nvim",
     dependencies = {
       {
-	"L3MON4D3/LuaSnip"
+	"nvim-lua/plenary.nvim"
       }
     }
   }
