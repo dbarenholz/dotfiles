@@ -20,6 +20,8 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias vimrc='$EDITOR ~/.config/nvim/init.lua'
 alias aliases='$EDITOR ~/.aliases'
 
+alias code='code --profile dbarenholz .'
+
 # quickhand for directories
 alias d='cd ~/.dotfiles'
 alias c='cd ~/.config'
