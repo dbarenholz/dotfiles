@@ -8,6 +8,7 @@ vim.g.lsps = {
   "marksman",  -- md; markdown completion, wiki links
   "cssls",     -- css
   "jsonls",    -- json
+  "hls",       -- haskell
   --"biome",
   --"tsserver",
   --"html"
