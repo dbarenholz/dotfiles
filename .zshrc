@@ -64,3 +64,6 @@ export NVM_DIR="$HOME/.nvm"
 ## Ruby
 export GEM_HOME="$HOME/gems"
 export PATH="$PATH:$HOME/gems/bin"
+
+## Haskell
+export PATH="$PATH:$HOME/.ghcup/bin"
