@@ -20,11 +20,13 @@ compinit
 [[ -f "/home/dan/.aliases" ]] && source "/home/dan/.aliases"
 
 # Fix: keybinds
-bindkey  "^[[H"    beginning-of-line # Home
-bindkey  "^[[F"    end-of-line       # End
-bindkey  "^[[3~"   delete-char       # Delete
-bindkey  "^[[1;5C" forward-word      # CTRL+Right
-bindkey  "^[[1;5D" backward-word     # CTRL+Left
+bindkey  "^[[H"    beginning-of-line   # Home
+bindkey  "^[[F"    end-of-line         # End
+bindkey  "^[[3~"   delete-char         # Delete
+bindkey  "^[[1;5C" forward-word        # CTRL+Right
+bindkey  "^[[1;5D" backward-word       # CTRL+Left
+bindkey  "^H"      backward-kill-word  # CTRL+Backspace
+bindkey  "^[[3;5~" kill-word           # CTRL+Delete
 
 # tab completion on menus
 zstyle ':completion:*' menu select
