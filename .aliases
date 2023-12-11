@@ -10,6 +10,7 @@ alias gst='git status'
 alias gcs='git commit -S'
 alias gcsm='git commit -S -m'
 alias gp='git push'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset" --abbrev-commit'
 
 # zshrc and aliases editing
 alias nano='nvim'
