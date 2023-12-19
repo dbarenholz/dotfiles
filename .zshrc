@@ -11,13 +11,13 @@ SAVEHIST=1000
 bindkey -e
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/dan/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 # aliases
-[[ -f "/home/dan/.aliases" ]] && source "/home/dan/.aliases"
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 # Fix: keybinds
 bindkey  "^[[H"    beginning-of-line   # Home
