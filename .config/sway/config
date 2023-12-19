@@ -19,13 +19,11 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # Recommends: rofi-wayland
-set $rofi_cmd rofi \
-        -terminal '$term'
+set $rofi_cmd rofi -terminal '$term'
 
-# Shows a combined list of the applications with desktop files and
-# executables from PATH.
-# TODO: add window with the next release of rofi-wayland
-set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+# Use drun, run, ssh, and filebrowser modes. Switch with (Shift)+CTRL+Tab.
+set $menu $rofi_cmd -modi 'drun#run#ssh#filebrowser' -show
+
 
 ### Output configuration
 #
@@ -247,3 +245,118 @@ client.unfocused          $ignored  $ignored    $ignored  $indicator  $inactive
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+## Just put everything in the same file so I know the entire config...
+
+## config.d/50-browser-rules.conf
+# apply mark for Xwayland and wayland native browser windows
+for_window [class="Chromium-browser"] mark Browser
+for_window [class="Brave-browser"] mark Browser
+for_window [class="firefox"]  mark Browser
+for_window [app_id="Chromium-browser"] mark Browser
+for_window [app_id="brave-browser"] mark Browser
+for_window [app_id="firefox"] mark Browser
+
+## Added: Vivaldi browser
+for_window [class="vivaldi"]  mark Browser
+for_window [class="Vivaldi"]  mark Browser
+for_window [app_id="vivaldi"]  mark Browser
+for_window [app_id="Vivaldi"]  mark Browser
+
+# inhibit scrensaver for fullscreen browser windows
+for_window [con_mark="Browser"] {
+    inhibit_idle fullscreen
+}
+
+# firefox wayland screensharing indicator
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
+    floating enable
+}
+
+## config.d/50-rules-pavucontrol.conf
+# Display PulseAudio volume control application (both GTK and Qt varieties)
+# as a floating window.
+
+for_window [app_id="pavucontrol"] {
+    floating enable
+    move position center
+}
+
+for_window [app_id="pavucontrol-qt"] {
+    floating enable
+    move position center
+}
+
+## config.d/60-bindings-brightness.conf
+# Key bindings for brightness control using `light`.
+# Displays a notification with the current value if /usr/bin/notify-send is available
+#
+# Brightness increase/decrease step can be customized by setting the `$brightness_step`
+# variable to a numeric value before including the file.
+#
+# Requires:     light
+# Recommends:   libnotify
+
+set $brightness_notification_cmd  command -v notify-send >/dev/null && \
+        VALUE=$(light) && VALUE=${VALUE%%.*} && \
+        notify-send -e -h string:x-canonical-private-synchronous:brightness \
+            -h "int:value:$VALUE" -t 800 "Brightness: ${VALUE}%"
+
+bindsym XF86MonBrightnessDown exec \
+        'STEP="$brightness_step" && light -U ${STEP:-5} && $brightness_notification_cmd'
+bindsym XF86MonBrightnessUp exec \
+        'STEP="$brightness_step" && light -A ${STEP:-5} && $brightness_notification_cmd'
+
+## config.d/60-bindings-media.conf
+# Key bindings for media player control via MPRIS D-Bus interface
+#
+# Requires:     playerctl
+
+# Allow Play and Stop bindings even if the screen is locked
+bindsym --locked {
+    XF86AudioPlay       exec playerctl play-pause
+    XF86AudioStop       exec playerctl stop
+}
+
+bindsym {
+    XF86AudioForward    exec playerctl position +10
+    XF86AudioNext       exec playerctl next
+    XF86AudioPause      exec playerctl pause
+    XF86AudioPrev       exec playerctl previous
+    XF86AudioRewind     exec playerctl position -10
+}
+
+## config.d/60-bindings-volume.conf
+# Key bindings to control pipewire or pulseaudio volume with pactl.
+# Displays a notification with the current state if /usr/bin/notify-send is available
+#
+# Volume increase/decrease step can be customized by setting the `$volume_step`
+# variable to a numeric value before including the file.
+# Maximum volume boost level can be set with the `$volume_limit` variable.
+#
+# Requires:     pulseaudio-utils
+# Recommends:   libnotify
+
+set $volume_helper_cmd /usr/libexec/sway/volume-helper
+
+# Allow volume controls even if the screen is locked
+bindsym --locked {
+    XF86AudioRaiseVolume exec \
+        $volume_helper_cmd --limit "$volume_limit" --increase "$volume_step"
+    XF86AudioLowerVolume exec \
+        $volume_helper_cmd --limit "$volume_limit" --decrease "$volume_step"
+    XF86AudioMute    exec pactl set-sink-mute @DEFAULT_SINK@ toggle && $volume_helper_cmd
+    XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+}
+
+## config.d/90-bar.conf
+# Status Bar: waybar
+#
+# Read `man 5 sway-bar` for more information about this section.
+#
+# Requires: waybar
+
+bar {
+    position top
+    swaybar_command swaybar
+}

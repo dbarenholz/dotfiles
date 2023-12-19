@@ -58,6 +58,9 @@ source ~/.config/zsh/dotfiles.zsh
 source ~/.config/zsh/ssh.zsh
 source ~/.config/zsh/help.zsh
 
+## Distrobox
+export PATH="$PATH:$HOME/.distrobox/bin"
+
 ## Node
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
