@@ -31,6 +31,9 @@ alias c='cd ~/.config'
 alias sb='distrobox enter sb'
 alias dev='cd ~/dev && distrobox enter dev'
 
+# Fix lolcat having no colored output in Fedora
+alias lolcat='lolcat -f'
+
 ## composite commands
 # screenshot -- also bound to META+SHIFT+S using sway
 alias ss='grim -g "$(slurp)" - | wl-copy'
