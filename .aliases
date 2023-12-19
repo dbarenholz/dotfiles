@@ -34,6 +34,9 @@ alias dev='cd ~/dev && distrobox enter dev'
 # Fix lolcat having no colored output in Fedora
 alias lolcat='lolcat -f'
 
+# Always search hidden files
+fd='fd -H'
+
 ## composite commands
 # screenshot -- also bound to META+SHIFT+S using sway
 alias ss='grim -g "$(slurp)" - | wl-copy'
