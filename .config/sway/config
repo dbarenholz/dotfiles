@@ -95,7 +95,8 @@ bindswitch lid:off output eDP-1 enable
     bindsym $meta+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     # Lock screen
-    bindsym $meta+z exec swaylock -f -c 1d2433
+    # bindsym $meta+z exec swaylock -f -c 1d2433 # set a solid color as lockscreen
+    bindsym $meta+z exec "$HOME/.config/swaylock/lock.sh"
 #
 # Moving around:
 #
