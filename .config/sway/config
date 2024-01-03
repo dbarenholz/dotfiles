@@ -96,7 +96,7 @@ bindswitch lid:off output eDP-1 enable
 
     # Lock screen
     # bindsym $meta+z exec swaylock -f -c 1d2433 # set a solid color as lockscreen
-    bindsym $meta+z exec "$HOME/.config/swaylock/lock.sh"
+    bindsym $meta+z exec "~/bin/lock locked"
 #
 # Moving around:
 #
@@ -364,3 +364,8 @@ bar {
     position top
     swaybar_command swaybar
 }
+
+# Notification daemon
+exec swaync
+
+bindsym $mod+Shift+n exec swaync-client -t -sw
