@@ -29,7 +29,7 @@ alias c='cd ~/.config'
 
 # Quickly enter distroboxes
 alias sb='distrobox enter sb'
-alias dev='cd ~/dev && distrobox enter dev'
+alias dev='distrobox enter dev'
 
 # Fix lolcat having no colored output in Fedora
 alias lolcat='lolcat -f'
