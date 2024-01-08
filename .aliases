@@ -35,7 +35,11 @@ alias dev='distrobox enter dev'
 alias lolcat='lolcat -f'
 
 # Always search hidden files
-fd='fd -H'
+alias fd='fd -H'
+
+# wifi related things
+alias wifi="echo 'showing available wifi connections' && nmcli device wifi list"
+alias wifi_connect="nmcli --ask device wifi connect"
 
 ## composite commands
 # screenshot -- also bound to META+SHIFT+S using sway
