@@ -1,0 +1,2 @@
+-- https://downloads.haskell.org/ghc/latest/docs/users_guide/ghci.html#ghci-cmd-:set%20prompt
+:set prompt "%s> "

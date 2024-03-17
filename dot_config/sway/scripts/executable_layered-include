@@ -1,0 +1,51 @@
+#!/usr/bin/python3
+"""
+A helper for doing the config layering with sway style `include` expressions
+(which are pretty much just shell/wordexp(3) patterns).
+
+The script is meant to be invoked from sway (i3?) config as following
+```
+include '$(/path/to/the/script "/path1/*.conf" "/path2/*.conf" ...)'
+```
+(note the quoting, it is important), expand each expression to a list of files
+and layer them in a way that the files with the same name matched by a later
+patterns loaded over the earlier matches.
+"""
+
+import os
+import sys
+from hashlib import sha256
+from glob import iglob
+from os.path import basename, expandvars, join as join_paths
+
+
+def wordexp(value: str):
+    """A very bad wordexp(3) approximation"""
+    value = expandvars(value)
+    return iglob(value)
+
+
+configs: dict[str, str] = {}
+
+for arg in sys.argv[1:]:
+    # Expand the expression and collect the paths while overwriting previously
+    # collected entries with the same filename.
+    # Our internal wordexp is quite incomplete, but the calling wordexp should
+    # do all the heavy lifting and expand the variables.
+    for inc in wordexp(arg):
+        configs[basename(inc)] = inc
+
+# Write collected paths as an include directives to a temporary file.
+# This step is required because the filenames may contain $IFS characters
+# (whitespaces — I don't expect this to happen, but can't exclude the
+# possibility), and wordexp(3) will handle that quite bad.
+dirname = join_paths(os.environ['XDG_RUNTIME_DIR'], 'sway')
+os.makedirs(dirname, exist_ok=True)
+fnhash = sha256("\n".join(sys.argv).encode("UTF-8"))
+fname = join_paths(dirname, f"layered-include-{str(fnhash.hexdigest())}.conf")
+fd = os.open(fname, os.O_CREAT | os.O_TRUNC | os.O_WRONLY, mode=0o600)
+with open(fd, mode="w", encoding="UTF-8") as file:
+    for key in sorted(configs):
+        file.write(f"include '{configs[key]}'\n")
+# Send the temporary file name back to a calling wordexp
+print(fname)
