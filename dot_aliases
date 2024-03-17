@@ -25,8 +25,7 @@ alias aliases='$EDITOR ~/.aliases'
 alias code='code --profile dbarenholz .'
 
 # quickhand for directories
-alias d='cd ~/.dotfiles'
-alias c='cd ~/.config'
+alias d='cd ~/.local/share/chezmoi'
 
 # Quickly enter distroboxes
 alias sb='distrobox enter sb'
