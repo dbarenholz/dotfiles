@@ -5,6 +5,7 @@ alias ll='ls -la'
 
 # git aliases
 alias ga='git add'
+alias gap='git add -p'
 alias gaa='git add .'
 alias gst='git status'
 alias gcs='git commit -S'
