@@ -1,4 +1,6 @@
-# Neovim
+# nvim
+
+Neovim (nvim) is a terminal-baesd editor.
 
 TODO: Notes about setup.
 

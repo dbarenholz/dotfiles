@@ -1,10 +1,9 @@
 # foot
 
 [foot](https://wiki.archlinux.org/title/Foot) is a terminal emulator.
-It is the default terminal in Sericea, so I figured I might as well use it.
+It is the default terminal in [Sericea](#), so I figured I might as well use it.
 
-## Config
+- `foot.ini`: The configuration file.
+- `README.md`: You're reading it.
+- `themes`: A folder containing a port of the _Halcyon_ theme which I love.
 
-My config (so far) is minimal. 
-I'm only setting font-size, and theme.
-The theme that I use is [Halcyon](https://halcyon-theme.netlify.app/), which I ported so foot can use it.

@@ -1,15 +1,7 @@
-# Notes
+# autostart
 
-These files are _not_ symlinks due to wanting to run them on different machines
+This folder contains autostart entries for programs that should start when the system starts.
+Currently unsure if I still need this, or if I want everything managed by `sway` directly.
 
-On `dan@fedora` these are located at 
-
-```
-/var/lib/flatpak/exports/share/applications/
-```
-
-On `daniel@uu` these are located at
-
-```
-?
-```
+- `me.kozec.syncthingtk.desktop`: Starts `syncthing` automatically.
+- `README.md`: You're reading it.

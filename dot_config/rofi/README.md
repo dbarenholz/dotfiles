@@ -4,5 +4,5 @@
 
 ## Config
 
-I have set one of the existing themes. 
+I have set one of the existing themes.
 At some point I will port [Halcyon](#) for rofi, probably.
