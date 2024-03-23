@@ -18,3 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Split up config to use a folder: this automatically load everything in `.config/nvim/lua/plugins/*.lua`.
 require("lazy").setup("plugins")
+
+-- Set theme
+vim.cmd([[colorscheme halcyon]])

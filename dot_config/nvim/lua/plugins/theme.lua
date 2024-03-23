@@ -1,0 +1,3 @@
+return {
+  "dbarenholz/halcyon.nvim"
+}
