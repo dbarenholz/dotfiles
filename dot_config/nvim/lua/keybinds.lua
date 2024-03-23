@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- Telescope: file and project navigation
-Keymap('n', '<leader>ff', ':Telescope find_files<CR>', noremap)  -- ff :: find files
-Keymap('n', '<leader>fg', ':Telescope live_grep<CR>',  noremap)  -- fg :: find (by using) grep
-Keymap('n', '<leader>fb', ':Telescope buffers<CR>',    noremap)  -- fb :: find buffers
+Keymap('n', '<leader>ff', ':Telescope find_files<CR>',   noremap)  -- ff :: find files
+Keymap('n', '<leader>fg', ':Telescope live_grep<CR>',    noremap)  -- fg :: find (by using) grep
+Keymap('n', '<leader>fb', ':Telescope buffers<CR>',      noremap)  -- fb :: find buffers
+Keymap('n', '<leader>ft', ':Telescope file_browser<CR>', noremap)  -- ft :: find (file) tree
