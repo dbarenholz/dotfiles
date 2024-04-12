@@ -11,6 +11,8 @@ function Keymap(modes, lhs, rhs, opts)
 end
 
 
+vim.cmd([[command! -nargs=* W w]]);
+
 -- usually, I do not want to remap things
 local noremap = { remap = false }
 
