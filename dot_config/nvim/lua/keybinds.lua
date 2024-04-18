@@ -46,6 +46,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     Keymap('n', 'gi', vim.lsp.buf.implementation, opts)   -- gi :: goto impl
     -- DOCS https://neovim.io/doc/user/lsp.html#vim.lsp.buf.hover()
     Keymap('n', 'K',  vim.lsp.buf.hover, opts)            -- K :: no logical reason..
+    -- DOCS _todo_
+    Keymap('n', '<leader>ca', vim.lsp.buf.code_action, opts) -- ca :: code action
   end,
 })
 
