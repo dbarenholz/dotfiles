@@ -42,6 +42,9 @@ alias fd='fd -H'
 alias wifi="echo 'showing available wifi connections' && nmcli device wifi list"
 alias wifi_connect="nmcli --ask device wifi connect"
 
+# o : open the file
+alias o="xdg-open"
+
 ## composite commands
 # screenshot -- also bound to META+SHIFT+S using sway
 alias ss='grim -g "$(slurp)" - | wl-copy'

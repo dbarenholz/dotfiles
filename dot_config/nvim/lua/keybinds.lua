@@ -11,9 +11,9 @@ function Keymap(modes, lhs, rhs, opts)
 end
 
 -- I can't type, so I let nvim fix that for me.
-vim.cmd([[command! -nargs=* W w]]);
-vim.cmd([[command! -nargs=* WQ wq]]);
-vim.cmd([[command! -nargs=* Wq wq]]);
+vim.cmd.cnoreabbrev("W w")
+vim.cmd.cnoreabbrev("WQ wq")
+vim.cmd.cnoreabbrev("Wq wq")
 
 -- usually, I do not want to remap things
 local noremap = { remap = false }
