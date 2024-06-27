@@ -1,0 +1,11 @@
+#!/bin/sh
+# distrobox_binary
+BOX_NAME="tools"
+BIN_PATH='/usr/bin/nmap'
+
+case "${CONTAINER_ID}" in
+  "$BOX_NAME") exec                                                                  "$BIN_PATH" "$@" ;;
+  "")          exec                     "/usr/bin/distrobox-enter" -n "$BOX_NAME" -- "$BIN_PATH" "$@" ;;
+  *)           exec distrobox-host-exec "/usr/bin/distrobox-enter" -n "$BOX_NAME" -- "$BIN_PATH" "$@" ;;
+esac
+

@@ -16,7 +16,6 @@ alias gl='git log --graph --pretty=format:"%C(magenta)%h%Creset -%C(yellow)%d%Cr
 
 # zshrc and aliases editing
 alias nano='nvim'
-alias vi='nvim'
 alias vim='nvim'
 
 alias zshrc='$EDITOR ~/.zshrc'
@@ -29,8 +28,7 @@ alias code='code --profile dbarenholz .'
 alias d='cd ~/.local/share/chezmoi'
 
 # Quickly enter distroboxes
-alias sb='distrobox enter sb'
-alias dev='distrobox enter dev'
+alias hs='distrobox enter hs'
 
 # Fix lolcat having no colored output in Fedora
 alias lolcat='lolcat -f'
