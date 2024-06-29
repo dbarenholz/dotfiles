@@ -31,56 +31,38 @@ bindkey  "^[[3;5~" kill-word           # CTRL+Delete
 # tab completion on menus
 zstyle ':completion:*' menu select
 
-# Set terminal to something distrobox understands
-export TERM=xterm-256color
-
 # Include binaries
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/bin/scripts"
 
-# Include exported distrobox binaries
-export PATH="$PATH:$HOME/bin/distrobox/tools"
-export PATH="$PATH:$HOME/bin/distrobox/fun"
-export PATH="$PATH:$HOME/bin/distrobox/hs"
+# Include exported distrobox binaries          # provided binaries by the distrobox
+# ---------------------------------------------------------------------------------
+export PATH="$PATH:$HOME/bin/distrobox/tools"  # bat fd nc nmap nvim rg
+export PATH="$PATH:$HOME/bin/distrobox/fun"    # animalsay cmatrix cowsay cowthink figlet fortune lolcat sl
+export PATH="$PATH:$HOME/bin/distrobox/hs"     # cabal ghci runghc/runhaskell
+export PATH="$PATH:$HOME/bin/distrobox/go"     # go gofmt
+export PATH="$PATH:$HOME/bin/distrobox/lua"    # lua luac lua-5.1 luac-5.1 luarocks luarocks-admin
+export PATH="$PATH:$HOME/bin/distrobox/jl"     # julia juliaup
+export PATH="$PATH:$HOME/bin/distrobox/rs"     # cargo rustc rustfmt rustup
+export PATH="$PATH:$HOME/bin/distrobox/rb"     # gem ruby
 
-export EDITOR=nvim
-export GTK_THEME=Adwaita:dark
+## Variables
+export EDITOR=nvim             # use neovim as default editor
+export GTK_THEME=Adwaita:dark  # tell GTK gui apps to use darkmode
+export TERM=xterm-256color     # Set terminal to something distrobox understands
+export GEM_HOME="$HOME/.gems"  # ruby
 
 # p10k - fancy prompts!
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# plugins
+# ZSH plugins and functions
 #  format: 'github-user/repo-name'
 #  usage: `source plugins.zsh` file; this will install it
-plugins=(
+local plugins=(
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-syntax-highlighting
 )
-source ~/.config/zsh/plugins.zsh
+[[ -f "$HOME/.config/zsh/plugins.zsh" ]] && source "$HOME/.config/zsh/plugins.zsh"
+[[ -f "$HOME/.config/zsh/ssh.zsh" ]] && source "$HOME/.config/zsh/ssh.zsh"
 
-# custom functions for various reasons
-source ~/.config/zsh/ssh.zsh
-
-## Node
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-## Ruby
-export GEM_HOME="$HOME/gems"
-export PATH="$PATH:$HOME/gems/bin"
-
-## Haskell
-# export PATH="$PATH:$HOME/.ghcup/bin"
-
-## Rust
-export PATH="$PATH:$HOME/.cargo/bin"
-
-
-# bun completions
-[ -s "/home/dan/.bun/_bun" ] && source "/home/dan/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
