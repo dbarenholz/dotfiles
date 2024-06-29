@@ -43,7 +43,12 @@ alias wifi_connect="nmcli --ask device wifi connect"
 # o : open the file
 alias o="xdg-open"
 
+# fix host python to use the one in the distrobox
+alias python="$HOME/bin/distrobox/py/python"
+alias python3="$HOME/bin/distrobox/py/python3"
+
+
 ## composite commands
 # screenshot -- also bound to META+SHIFT+S using sway
 alias ss='grim -g "$(slurp)" - | wl-copy'
-alias screenshare='echo "mpv -vo=xv udp://0.0.0.0:1111 --no-cache --untimed --no-demuxer-thread --video-sync=audio --vd-lavc-threads=1 & wf-recorder --muxer=mpegts --codec=libx264 --file=udp://0.0.0.0:1111"'
+# alias screenshare='echo "mpv -vo=xv udp://0.0.0.0:1111 --no-cache --untimed --no-demuxer-thread --video-sync=audio --vd-lavc-threads=1 & wf-recorder --muxer=mpegts --codec=libx264 --file=udp://0.0.0.0:1111"'

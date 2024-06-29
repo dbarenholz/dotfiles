@@ -45,6 +45,8 @@ export PATH="$PATH:$HOME/bin/distrobox/lua"    # lua luac lua-5.1 luac-5.1 luaro
 export PATH="$PATH:$HOME/bin/distrobox/jl"     # julia juliaup
 export PATH="$PATH:$HOME/bin/distrobox/rs"     # cargo rustc rustfmt rustup
 export PATH="$PATH:$HOME/bin/distrobox/rb"     # gem ruby
+export PATH="$PATH:$HOME/bin/distrobox/php"    # php composer
+export PATH="$PATH:$HOME/bin/distrobox/py"     # python pip
 
 ## Variables
 export EDITOR=nvim             # use neovim as default editor
