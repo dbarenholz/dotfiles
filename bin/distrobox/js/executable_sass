@@ -1,7 +1,7 @@
 #!/bin/sh
 # distrobox_binary
-BOX_NAME="name"
-BIN_PATH='/home/dan/.ghcup/bin/cabal'
+BOX_NAME="js"
+BIN_PATH='/home/dan/.sass/sass'
 
 case "${CONTAINER_ID}" in
   "$BOX_NAME") exec                                                                  "$BIN_PATH" "$@" ;;
