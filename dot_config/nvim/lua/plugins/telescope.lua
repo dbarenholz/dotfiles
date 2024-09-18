@@ -1,21 +1,12 @@
 return {
-  -- Telescope itself
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-	"nvim-lua/plenary.nvim"
-      }
-    }
-  },
-  -- Telescope extension for a file browser (in stead of fuzzy finding files)
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope.nvim",
-        "nvim-lua/plenary.nvim"
-      }
-    }
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    -- Developer-oriented module containing a bunch of helper functions that telescope wants
+    "nvim-lua/plenary.nvim",
+    -- Make sorting fast if necessary
+    -- {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    --   build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
+    -- }
   }
 }

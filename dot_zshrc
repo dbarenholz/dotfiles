@@ -31,11 +31,7 @@ bindkey  "^[[3;5~" kill-word           # CTRL+Delete
 # tab completion on menus
 zstyle ':completion:*' menu select
 
-## Variables
-export EDITOR=nvim             # use neovim as default editor
-export GTK_THEME=Adwaita:dark  # tell GTK gui apps to use darkmode
 export TERM=xterm-256color     # set terminal to something distrobox understands
-export GEM_HOME="$HOME/.gems"  # set home variable for ruby gems
 
 # p10k - fancy prompts!
 source "$HOME/powerlevel10k/powerlevel10k.zsh-theme"
@@ -52,26 +48,29 @@ local plugins=(
 [[ -f "$HOME/.config/zsh/ssh.zsh" ]]      && source "$HOME/.config/zsh/ssh.zsh"
 [[ -f "$HOME/.config/zsh/add_path.zsh" ]] && source "$HOME/.config/zsh/add_path.zsh"
 
-# Include binaries
+# Include own binaries and scripts
 add_path "$HOME/bin"
 add_path "$HOME/bin/scripts"
 
-# Include distrobox binaries          # provided binaries by the distrobox
-add_path "$HOME/bin/distrobox/tools"  # bat fd nc nmap nvim rg
-add_path "$HOME/bin/distrobox/fun"    # animalsay cmatrix cowsay cowthink figlet fortune lolcat sl
-add_path "$HOME/bin/distrobox/hs"     # cabal ghci runghc/runhaskell
-add_path "$HOME/bin/distrobox/go"     # go gofmt
-add_path "$HOME/bin/distrobox/lua"    # lua luac lua-5.1 luac-5.1 luarocks luarocks-admin
-add_path "$HOME/bin/distrobox/jl"     # julia juliaup
-add_path "$HOME/bin/distrobox/rs"     # cargo rustc rustfmt rustup
-add_path "$HOME/bin/distrobox/rb"     # gem ruby
-add_path "$HOME/bin/distrobox/php"    # php composer
-add_path "$HOME/bin/distrobox/py"     # python pip
-add_path "$HOME/bin/distrobox/js"     # node bun;
-  # nvm is a shell script, sourced below
-  [[ -f "$HOME/.config/nvm/nvm.sh" ]]          && source "$HOME/.config/nvm/nvm.sh"
-  # nvm has completions, sourced below
-  [[ -f "$HOME/.config/nvm/bash_completion" ]] && source "$HOME/.config/nvm/bash_completion"
-  # bun has completions, sourced below
-  [[ -f "$HOME/.bun/_bun" ]]                   && source "$HOME/.bun/_bun"
+# Haskell binaries
+add_path "$HOME/.ghcup/bin"
+
+# Rust binaries
+add_path "$HOME/.cargo/bin"
+
+# Julia binaries
+add_path "$HOME/.juliaup/bin"
+
+# Ruby binaries and gems
+export GEM_HOME="$HOME/.gems"  # set home variable for ruby gems
+
+# Node, bun, and other JS/TS binaries
+add_path "$HOME/.bun/bin"
+[[ -f "$HOME/.bun/_bun" ]]                   && source "$HOME/.bun/_bun"                   # bun has completions, sourced below
+[[ -f "$HOME/.config/nvm/nvm.sh" ]]          && source "$HOME/.config/nvm/nvm.sh"          # nvm is a shell script, sourced below
+[[ -f "$HOME/.config/nvm/bash_completion" ]] && source "$HOME/.config/nvm/bash_completion" # nvm has completions, sourced below
+add_path "$HOME/.sass"
+
+# Go binaries
+add_path "$HOME/go/bin"
 

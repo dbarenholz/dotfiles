@@ -1,5 +1,5 @@
 # ls aliases
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -h'
 alias l='ls -l'
 alias ll='ls -la'
 
@@ -19,16 +19,10 @@ alias nano='nvim'
 alias vim='nvim'
 
 alias zshrc='$EDITOR ~/.zshrc'
-alias vimrc='$EDITOR ~/.config/nvim/init.lua'
 alias aliases='$EDITOR ~/.aliases'
 
-alias code='code --profile dbarenholz .'
-
 # quickhand for directories
-alias d='cd ~/.local/share/chezmoi'
-
-# Quickly enter distroboxes
-alias hs='distrobox enter hs'
+alias d='cd ~/.local/share/chezmoi' ## d -> dotfiles
 
 # Fix lolcat having no colored output in Fedora
 alias lolcat='lolcat -f'
@@ -36,19 +30,14 @@ alias lolcat='lolcat -f'
 # Always search hidden files
 alias fd='fd -H'
 
-# wifi related things
-alias wifi="echo 'showing available wifi connections' && nmcli device wifi list"
-alias wifi_connect="nmcli --ask device wifi connect"
+# wifi related things (now callable from distrobox where I live)
+alias wifi="echo 'showing available wifi connections' && distrobox-host-exec nmcli device wifi list"
+alias wifi_connect="distrobox-host-exec nmcli --ask device wifi connect"
 
 # o : open the file
 alias o="xdg-open"
 
-# fix host python to use the one in the distrobox
-alias python="$HOME/bin/distrobox/py/python"
-alias python3="$HOME/bin/distrobox/py/python3"
-
-
-## composite commands
-# screenshot -- also bound to META+SHIFT+S using sway
-alias ss='grim -g "$(slurp)" - | wl-copy'
-# alias screenshare='echo "mpv -vo=xv udp://0.0.0.0:1111 --no-cache --untimed --no-demuxer-thread --video-sync=audio --vd-lavc-threads=1 & wf-recorder --muxer=mpegts --codec=libx264 --file=udp://0.0.0.0:1111"'
+# I keep mistyping this
+alias rpmostree="rpm-ostree"
+alias bz="rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-gnome-nvidia"
+alias db="rpm-ostree rebase ostree-image-signed:docker://ghcr.io/dbarenholz/halcyos:latest"

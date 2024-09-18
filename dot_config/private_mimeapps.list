@@ -1,0 +1,19 @@
+[Default Applications]
+text/html=com.vivaldi.Vivaldi.desktop
+x-scheme-handler/http=com.vivaldi.Vivaldi.desktop
+x-scheme-handler/https=com.vivaldi.Vivaldi.desktop
+x-scheme-handler/about=com.vivaldi.Vivaldi.desktop
+x-scheme-handler/unknown=com.vivaldi.Vivaldi.desktop
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
+video/x-matroska=org.videolan.VLC.desktop
+video/mp4=org.videolan.VLC.desktop
+application/pdf=org.kde.okular.desktop
+
+[Added Associations]
+text/plain=gcr-viewer.desktop;
+video/x-matroska=org.videolan.VLC.desktop;
+video/mp4=org.videolan.VLC.desktop;
+audio/flac=net.mediaarea.MediaInfo.desktop;
+application/pdf=com.adobe.Reader.desktop;org.kde.okular.desktop;
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
+image/png=com.vivaldi.Vivaldi.desktop;imv.desktop;org.gimp.GIMP.desktop;
