@@ -74,3 +74,5 @@ add_path "$HOME/.sass"
 # Go binaries
 add_path "$HOME/go/bin"
 
+# Exported distrobox binaries
+add_path "$HOME/.local/bin"
