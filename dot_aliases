@@ -22,7 +22,7 @@ alias zshrc='$EDITOR ~/.zshrc'
 alias aliases='$EDITOR ~/.aliases'
 
 # quickhand for directories
-alias d='cd ~/.local/share/chezmoi' ## d -> dotfiles
+alias d='cd ~/.local/share/chezmoi'
 
 # Fix lolcat having no colored output in Fedora
 alias lolcat='lolcat -f'
@@ -36,6 +36,9 @@ alias wifi_connect="distrobox-host-exec nmcli --ask device wifi connect"
 
 # o : open the file
 alias o="xdg-open"
+
+# dev
+alias dev="distrobox enter dev"
 
 # I keep mistyping this
 alias rpmostree="rpm-ostree"
