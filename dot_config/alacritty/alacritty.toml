@@ -1,0 +1,9 @@
+[general]
+# Split out color config
+import = [
+  "~/.config/alacritty/colors.toml",
+]
+
+[font]
+normal = { family = "MesloLGSNerdFontMono", style="Regular" }
+size = 10

@@ -1,0 +1,14 @@
+[Default Applications]
+text/html=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+image/jpeg=imv.desktop
+image/png=imv.desktop
+document/pdf=org.kde.okular.desktop
+text/markdown=nvim.desktop
+text/x-markdown=nvim.desktop
+text/plain=nvim.desktop
+application/pdf=org.kde.okular.desktop
+audio/flac=mpv.desktop

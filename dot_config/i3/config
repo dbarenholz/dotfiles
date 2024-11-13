@@ -1,0 +1,20 @@
+# mod: alt key
+set $mod Mod1
+
+# meta: windows key
+set $meta Mod4
+
+# direction keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+
+# Font for window titles
+font pango:MesloLGS Nerd Font Mono 10
+
+# Include split files; they have access to defines above
+include "${XDG_CONFIG_HOME:-$HOME/.config}/i3/*.conf"
+include "${XDG_CONFIG_HOME:-$HOME/.config}/i3/config.d/*.conf"

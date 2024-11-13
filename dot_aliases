@@ -1,0 +1,44 @@
+# ls aliases
+alias ls='ls --color=auto -h'
+alias l='ls -l'
+alias ll='ls -la'
+
+# git aliases
+alias ga='git add'
+alias gap='git add -p'
+alias gaa='git add .'
+alias gst='git status'
+alias gcs='git commit -S'
+alias gcsm='git commit -S -m'
+alias gp='git push'
+alias gla='git log --graph --pretty=format:"%C(magenta)%h%Creset%C(red) (%an)%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset" --abbrev-commit'
+alias gl='git log --graph --pretty=format:"%C(magenta)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset" --abbrev-commit'
+
+# zshrc and aliases editing
+alias nano='nvim'
+alias vi='nvim'
+
+alias cz='chezmoi'
+alias zshrc='chezmoi edit --apply ~/.zshrc'
+alias aliases='chezmoi edit --apply ~/.aliases'
+
+# quickhand for directories
+alias d='cd ~/.local/share/chezmoi'
+
+# Fix lolcat having no colored output in Fedora
+alias lolcat='lolcat -f'
+
+# Always search hidden files
+alias fd='fd -H'
+
+# wifi related things
+alias wifi="echo 'showing available wifi connections' && nmcli device wifi list"
+alias wifi_connect="nmcli --ask device wifi connect"
+
+# o : open the file
+alias o="xdg-open"
+
+# dev
+# alias dev="distrobox enter dev"
+
+# vi: ft=sh

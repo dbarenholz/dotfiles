@@ -1,0 +1,26 @@
+[colors]
+cursor = { text = "CellBackground", cursor = "#ffcc66" }
+
+[colors.primary]
+foreground = "#a2aabc"
+background = "#1d2433"
+
+[colors.normal]
+black = "#171c28"
+red = "#ef6b73"
+green = "#bae672"
+yellow = "#ffd580"
+blue = "#5ccfe6"
+magenta = "#c3a6ff"
+cyan = "#5ccfe6"
+white = "#d7dce2"
+
+[colors.bright]
+black = "#8695b7"
+red = "#f07078"
+green = "#bae672"
+yellow = "#ffd580"
+blue = "#5ccfe6"
+magenta = "#c3a6ff"
+cyan = "#5ccfe6"
+white = "#d7dce2"

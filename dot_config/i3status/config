@@ -1,0 +1,28 @@
+## General information
+general {
+  output_format = i3bar
+  colors = true
+  interval = 5
+}
+
+
+## Components added from left to right
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+
+
+## Component configuration
+battery all {
+  format = "B: %percentage %remaining"
+}
+
+volume master {
+  format = "V: %volume"
+  format_muted = "V: muted (%volume)"
+  device = "pulse:1"
+}
+
+tztime local {
+  format = "%Y-%m-%d %H:%M"
+}

@@ -1,0 +1,31 @@
+# -*- conf -*-
+# Halcyon
+# Colours from https://halcyon-theme.netlify.app/ 
+
+[cursor]
+color=ffcc66 ffcc66
+
+[colors]
+background=1d2433
+foreground=a2aabc
+
+regular0=171c28  # black
+regular1=ef6b73  # red
+regular2=bae672  # green
+regular3=ffd580  # yellow
+regular4=5ccfe6  # blue
+regular5=c3a6ff  # magenta
+regular6=5ccfe6  # cyan
+regular7=d7dce2  # white
+bright0=8695b7   # bright black
+bright1=f07078   # bright red
+bright2=bae672   # bright green
+bright3=ffd580   # bright yellow
+bright4=5ccfe6   # bright blue
+bright5=c3a6ff   # bright magenta
+bright6=5ccfe6   # bright cyan
+bright7=d7dce2   # bright white
+
+selection-foreground=a2aabc
+selection-background=2f3b54
+

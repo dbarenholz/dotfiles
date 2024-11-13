@@ -1,0 +1,80 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+HISTFILE=~/.histfile
+HISTSIZE=2000
+SAVEHIST=1000
+bindkey -e
+
+# The following lines were added by compinstall
+zstyle :compinstall filename "$HOME/.zshrc"
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Set editor to nvim
+export EDITOR="nvim"
+
+# aliases
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+
+# Fix: keybinds
+bindkey  "^[[H"    beginning-of-line   # Home
+bindkey  "^[[F"    end-of-line         # End
+bindkey  "^[[3~"   delete-char         # Delete
+bindkey  "^[[1;5C" forward-word        # CTRL+Right
+bindkey  "^[[1;5D" backward-word       # CTRL+Left
+bindkey  "^H"      backward-kill-word  # CTRL+Backspace
+bindkey  "^[[3;5~" kill-word           # CTRL+Delete
+
+# tab completion on menus
+zstyle ':completion:*' menu select
+
+# p10k - fancy prompts!
+source "$HOME/powerlevel10k/powerlevel10k.zsh-theme"
+[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
+
+# ZSH plugins and functions
+#  format: 'github-user/repo-name'
+#  usage: `source plugins.zsh` file; this will install it
+local plugins=(
+  zsh-users/zsh-autosuggestions
+  zsh-users/zsh-syntax-highlighting
+)
+[[ -f "$HOME/.config/zsh/check_bin.zsh" ]] && source "$HOME/.config/zsh/check_bin.zsh"  # provides check_bin <bin>
+[[ -f "$HOME/.config/zsh/add_path.zsh" ]]  && source "$HOME/.config/zsh/add_path.zsh"   # provides add_path <dir>
+[[ -f "$HOME/.config/zsh/plugins.zsh" ]]   && source "$HOME/.config/zsh/plugins.zsh"    # sourcing installs plugins
+[[ -f "$HOME/.config/zsh/ssh.zsh" ]]       && source "$HOME/.config/zsh/ssh.zsh"        # sourcing sets up ssh-agent
+
+# Include own binaries and scripts
+add_path "$HOME/bin"
+add_path "$HOME/bin/scripts"
+
+# Haskell binaries
+add_path "$HOME/.ghcup/bin"
+
+# Rust binaries
+add_path "$HOME/.cargo/bin"
+
+# Julia binaries
+add_path "$HOME/.juliaup/bin"
+
+# Ruby binaries and gems
+export GEM_HOME="$HOME/.gems"  # set home variable for ruby gems
+
+# Node, bun, and other JS/TS binaries
+add_path "$HOME/.bun/bin"
+[[ -f "$HOME/.bun/_bun" ]]                   && source "$HOME/.bun/_bun"                   # bun has completions, sourced below
+[[ -f "$HOME/.config/nvm/nvm.sh" ]]          && source "$HOME/.config/nvm/nvm.sh"          # nvm is a shell script, sourced below
+[[ -f "$HOME/.config/nvm/bash_completion" ]] && source "$HOME/.config/nvm/bash_completion" # nvm has completions, sourced below
+add_path "$HOME/.sass"
+
+# Go binaries
+add_path "$HOME/go/bin"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
