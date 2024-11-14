@@ -1,7 +1,7 @@
-# foot
+## ~/.config/foot
 
 [foot](https://wiki.archlinux.org/title/Foot) is a terminal emulator.
-It is the default terminal in [Sericea](https://fedoraproject.org/atomic-desktops/sway/), so I figured I might as well use it.
+It is the default terminal in [sericea](https://fedoraproject.org/atomic-desktops/sway/), so I figured I might as well use it.
 
 - `foot.ini`: The configuration file.
 - `README.md`: You're reading it.

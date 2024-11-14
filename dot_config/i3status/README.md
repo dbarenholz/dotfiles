@@ -1,4 +1,4 @@
-## i3status
+## ~/.config/i3status
 
 [`i3status`](<https://wiki.archlinux.org/title/I3#4.3>) is a simple status _thing_ for use with (amongst others) [`i3bar`](<https://i3wm.org/docs/userguide.html#_configuring_i3bar>).
 It decides which textual elements are shown in the bar.

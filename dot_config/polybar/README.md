@@ -1,9 +1,7 @@
-## polybar
+## ~/.config/polybar
 
-- [ ] Add some links when this is on git
-
-[`polybar`](#) is an alternative to [`i3bar`](#) that (to me) is easier to modify and customize.
-I have forced the Halcyon colors onto it.
+[`polybar`](<https://github.com/polybar/polybar>) is an alternative to [`i3bar`](<https://i3wm.org/i3bar/>) that (to me) is easier to modify and customize.
+As with everything else, I have forced the [Halcyon](<https://halcyon-theme.netlify.app>) colors onto it.
 
 ### Configuration
 

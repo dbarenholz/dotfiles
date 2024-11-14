@@ -7,4 +7,4 @@ I've spent _considerable_ time modifying it, which has resulted in the following
 - Enable more playback rates in `./pipewire.conf.d/10-rates.conf`, see [this article](<https://www.izotope.com/en/learn/digital-audio-basics-sample-rate-and-bit-depth.html>) for details on what that means.
 - Tell Discord to not modify audio in `./pipewire-pulse.conf.d/50-volume-block.conf`.
 
-See also my [wireplumber](#) configuration.
+See also my [wireplumber](<https://github.com/dbarenholz/dotfiles/tree/main/dot_config/wireplumber>) configuration.

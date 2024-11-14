@@ -10,7 +10,7 @@ An (incomplete) overview:
 - `mount-ssd.sh`: Mounts my internal SSD at the desired location.
 - `notify_audio.sh`: Helper script to display notifications when changing volume.
 - `notify_brightness.sh`: Helper script to display notifications when changing monitor brightness.
-- `polybar.sh`: Starts [`polybar`](#) in the (almost) desired configuration.
+- `polybar.sh`: Starts [`polybar`](<https://github.com/dbarenholz/dotfiles/tree/main/dot_config/polybar>) in the (almost) desired configuration.
 - `screenshot.sh`: Make a screenshot of a desired area, and save it to the clipboard.
 - `screens.sh`: Only used for X server: Select your desired screenlayout, and it'll switch to it.
 

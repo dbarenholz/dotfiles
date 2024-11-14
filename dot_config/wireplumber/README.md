@@ -5,4 +5,4 @@
 - Limit volume to 100% in `./wireplumber.conf.d/60-volume-limit.conf`  alsa nodes made by wireplumber.
 - Tell wireplumber to not switch profiles in `./wireplumber.conf.d//99-bluetooth-autoswitch.conf`. This setting also disables switching for non-bluetooth devices.
 
-See also my [pipewire](#) configuration.
+See also my [pipewire](<https://github.com/dbarenholz/dotfiles/tree/main/dot_config/pipewire>) configuration.

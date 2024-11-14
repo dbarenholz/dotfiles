@@ -1,10 +1,10 @@
-# sway
+## ~/.config/sway
 
 The window manager I use is [sway](https://github.com/swaywm/sway).
 
-## Config
+### Configuration
 
-My configuration is split up in a few separate files. 
+My configuration is split up in a few separate files.
 I am using _only_ files from `~/.dotfiles/.config/sway`, so this configuration is fully reproducible on other systems.
 
 This means that the `config.d` directory is `~/.config/sway/config.d/` as opposed to `/etc/sway/config.d/` or something silly.

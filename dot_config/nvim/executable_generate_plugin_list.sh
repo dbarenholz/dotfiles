@@ -22,6 +22,8 @@ sed -in "$LINE_NO,$ d" "$README_FILE"
 
 # Get plugin list and write to readme file
 echo "" >> $README_FILE
+echo '_This is a complete list of all plugins, obtained by running `generate_plugin_list.sh`._' >> $README_FILE
+echo "" >> $README_FILE
 nvim --headless -c ':lua LIST_PLUGINS()' -c '-q'  | sort >> $README_FILE
 
 rm "${README_FILE}n"

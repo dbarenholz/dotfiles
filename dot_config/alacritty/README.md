@@ -1,8 +1,6 @@
-## alacritty
+## ~/.config/alacritty
 
-- [ ] Add some links when this is on git
-
-I use [alacritty](#) as my terminal emulator.
+I use [alacritty](<https://github.com/alacritty/alacritty>) as my terminal emulator.
 
 ### Configuration
 

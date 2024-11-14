@@ -1,22 +1,23 @@
-## nvim
+## ~/.config/nvim
 
-- [ ] Add some links when this is on git
+[`nvim`](<https://neovim.io>) is a terminal-based editor. I use it to edit text and code files.
+To get started, I used [pseudometa's blogpost](<https://nanotipsforvim.prose.sh/bare-bones-modern-nvim-config>) for a minimal setup.
+Then, I modified it according to my tastes.
+I use [`lazy.nvim`](<https://lazy.folke.io>) as plugin manager.
 
-[`nvim`](#) is a terminal-based editor. I use it to edit text and code files.
-To get started, I used [pseudometa's blogpost](<https://nanotipsforvim.prose.sh/bare-bones-modern-nvim-config>) for a minimal setup. Then, I modified it according to my tastes.
-I used [`lazy.nvim`](<https://lazy.folke.io>) as plugin manager.
+### Configuration
 
-### Modifications
+My configuration is split into multiple files [according to the docs](<https://lazy.folke.io/usage/structuring>).
 
-- [ ] write some more about the actual configuration
+For my configuration, open the `./lua/config` folder.
+There's a readme that briefly describes each file.
 
-1. **Modularize plugins**: In stead of `local myPlugins = { ... }` and `require("lazy").setup({ spec = myPlugins })`, I have a folder `.config/nvim/lua/plugins` in which any `*.lua` file will automatically be loaded by `lazy.nvim` using `require("lazy").setup("plugins")`. This is done [according to the docs](<https://lazy.folke.io/usage/structuring>).
-2. **Options**: Under `.config/nvim/lua/config` in `options.lua` I set various options. The file is commented.
-3. **Autocmds**: Under `.config/nvim/lua/config` in `autocmds.lua` I ensure I don't have whitespace at the end of lines. The file is commented.
-4. **keybinds**: Under `.config/nvim/lua/config` in `keybinds.lua` I set my own desired keybinds. The file is commented.
-5. **Functions**:  Under `.config/nvim/lua/config` in `functions.lua` I write functions I need elsewhere (e.g. in the script to generate the list of plugins below). The file is commented.
+For plugins, open the `./lua/plugins` folder, and look through each file.
+You can also click on any of the links under the [installed plugins list](#installed-plugins) to directly open a particular plugins github page.
 
 ### Installed plugins
+
+_This is a complete list of all plugins, obtained by running `generate_plugin_list.sh`._
 
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim.git)
 - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp.git)

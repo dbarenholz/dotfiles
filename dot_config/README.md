@@ -21,3 +21,8 @@ Because chezmoi doesn't allow me to add any file from `.config/chezmoi`, I've de
 }
 ```
 
+### ~/.config/snippets
+
+This directory is paired with my [`snippet script`](<https://github.com/dbarenholz/dotfiles/blob/main/bin/scripts/executable_completer.sh>).
+I can't put a readme in there, or it will be picked up as a snippet.
+Essentially, with said script, every file is treated as a to-copy-paste snippet for other applications.
