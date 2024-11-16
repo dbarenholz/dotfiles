@@ -28,6 +28,9 @@ dev() {
     PROJECT="$PWD"
   fi
 
-  # Open the project with your desired editor
-  nvim "$PROJECT"
+  # Go to the directory
+  cd "$PROJECT"
+
+  # Open it
+  nvim .
 }
