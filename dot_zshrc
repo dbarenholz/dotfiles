@@ -49,6 +49,7 @@ local plugins=(
 [[ -f "$HOME/.config/zsh/add_path.zsh" ]]  && source "$HOME/.config/zsh/add_path.zsh"   # provides add_path <dir>
 [[ -f "$HOME/.config/zsh/plugins.zsh" ]]   && source "$HOME/.config/zsh/plugins.zsh"    # sourcing installs plugins
 [[ -f "$HOME/.config/zsh/ssh.zsh" ]]       && source "$HOME/.config/zsh/ssh.zsh"        # sourcing sets up ssh-agent
+[[ -f "$HOME/.config/zsh/dev.zsh" ]]       && source "$HOME/.config/zsh/dev.zsh"        # provides `dev`
 
 # Include own binaries and scripts
 add_path "$HOME/bin"
