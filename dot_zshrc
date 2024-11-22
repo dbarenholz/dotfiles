@@ -58,6 +58,10 @@ add_path "$HOME/bin/scripts"
 # Haskell binaries
 add_path "$HOME/.ghcup/bin"
 
+# SDKMAN for JVM related languages
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # Rust binaries
 add_path "$HOME/.cargo/bin"
 
